@@ -15,12 +15,17 @@ namespace Maui.MultipleWindows.App.Services
         public void ShowPopup(Guid key)
         {
             if (_pages.TryGetValue(key, out Page page))
-            {
                 if (page != null)
-                {
-                    this.ShowPopup(page, new MyPopup());
-                }
-            }
+                    page.ShowPopup(new MyPopup());
+        }
+
+        public Task<object> ShowPopupAsync(Guid key)
+        {
+            if (_pages.TryGetValue(key, out Page page))
+                if (page != null)
+                    return page.ShowPopupAsync(new MyPopup());
+
+            return Task.FromResult<object>(null);
         }
 
         public Guid RegisterPage(Page page)
@@ -36,12 +41,14 @@ namespace Maui.MultipleWindows.App.Services
             return newKey;
         }
 
-        private void ShowPopup(Page page, MyPopup popup)
+        private Page GetPageFromId(Guid id)
         {
-            MainThread.BeginInvokeOnMainThread(() =>
+            if (_pages.TryGetValue(id, out Page page))
             {
-                page.ShowPopup(popup);
-            });
+                return page;
+            }
+
+            return null;
         }
     }
 }

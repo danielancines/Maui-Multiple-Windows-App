@@ -21,12 +21,6 @@
                 Command="{Binding ShowPopupCommand}"
                 HorizontalOptions="Center" />
 
-            <Button
-                Text="{Binding NewWindowButtonText}"
-                SemanticProperties.Hint="Counts the number of times you click"
-                Clicked="Button_Clicked"
-                HorizontalOptions="Center" />
-
         </VerticalStackLayout>
     </ScrollView>
 

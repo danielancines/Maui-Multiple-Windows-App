@@ -8,4 +8,8 @@ public partial class MyPopup : Popup
 	{
 		InitializeComponent();
 	}
+
+    private void CancelButton_Clicked(object sender, EventArgs e) => Close(false);
+
+	private void ConfirmButton_Clicked(object sender, EventArgs e) => Close(true);
 }

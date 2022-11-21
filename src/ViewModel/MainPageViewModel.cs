@@ -36,9 +36,9 @@ public partial class MainPageViewModel : ObservableObject
     }
 
     [RelayCommand]
-    private void ShowPopup()
+    private async void ShowPopup()
     {
-        this._popupService.ShowPopup(this._popupContainerId);
+        var result = await this._popupService.ShowPopupAsync(this._popupContainerId);
     }
 
     public void SetPopupContainerId(Guid popupContainerId)

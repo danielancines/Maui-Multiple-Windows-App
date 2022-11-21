@@ -18,6 +18,9 @@
 
     <VerticalStackLayout>
         <Label Text="This is a very important message!" />
+
+        <Button x:Name="CancelButton" Text="Cancel" Clicked="CancelButton_Clicked"/>
+        <Button x:Name="ConfirmButton" Text="Confirm" Clicked="ConfirmButton_Clicked"/>
     </VerticalStackLayout>
 
 </toolkit:Popup>
